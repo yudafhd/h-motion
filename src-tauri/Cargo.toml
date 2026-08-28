@@ -1,0 +1,18 @@
+[package]
+name = "microstock-motion-mvp"
+version = "0.1.0"
+description = "HTML CSS JS to microstock motion video MVP"
+authors = ["Mahesapp"]
+edition = "2021"
+
+[lib]
+name = "microstock_motion_mvp_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
