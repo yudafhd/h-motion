@@ -37,5 +37,17 @@ motion.render((time, frame, fps) => {
 ```
 Do not rely on realtime CSS animation for final export. Drive final animation state from `time` for deterministic frames.
 
+## Gemini AI Studio template generator
+
+Click **Gemini AI** in the header, paste an API key created in Google AI Studio, describe the motion graphic, then choose the output preset, FPS, duration, and Gemini model. The key is saved locally by the app so it remains available after restart, but is never included in project JSON exports. Use **Hapus API key tersimpan** in the dialog to remove it.
+
+### Model Tersedia (Free Tier & Paid Tier):
+- **Tier Gratis & Berbayar (Flash — Kuota 15 RPM Free)**:
+  - `gemini-3.6-flash`: *Rekomendasi Utama* — Model resmi standar dari Google AI Studio untuk pembuatan template gerak deterministik yang cepat dan stabil.
+  - `gemini-3.7-flash`: Generasi termutakhir dengan kemampuan hybrid reasoning adaptif dan respon instan.
+  - `gemini-3.5-flash-lite`: Varian ultra-ringan hemat kuota untuk iterasi cepat.
+- **Tier Berbayar (Pro Reasoning)**:
+  - `gemini-3.1-pro-preview`: Penalaran tingkat tinggi untuk kalkulasi matematika rumit, geometri SVG presisi, dan arsitektur motion kompleks (Disarankan untuk Pay-as-you-go / 2 RPM di Free Tier).
+
 ## MVP limitation
 Node, Playwright Chromium and FFmpeg are development dependencies. Production packaging should convert renderer + FFmpeg into bundled Tauri sidecars. Asset manager, save/open project, cancel/progress events, alpha ProRes and post-render ffprobe validation are next milestones.

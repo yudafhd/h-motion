@@ -3,7 +3,39 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "scripts": {"dev":"vite","build":"tsc && vite build","preview":"vite preview","tauri":"tauri","renderer:install":"playwright install chromium"},
-  "dependencies": {"@tauri-apps/api":"^2.8.0","@monaco-editor/react":"^4.7.0","monaco-editor":"^0.52.2","react":"^19.1.1","react-dom":"^19.1.1"},
-  "devDependencies": {"@tauri-apps/cli":"^2.8.4","@types/react":"^19.1.10","@types/react-dom":"^19.1.7","@vitejs/plugin-react":"^5.0.2","playwright":"^1.55.0","typescript":"^5.9.2","vite":"^7.1.3"}
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run build:frontend",
+    "build:frontend": "tsc && vite build",
+    "build:sidecar": "node scripts/build-sidecar.mjs",
+    "build:bundle": "npm run build:frontend && npm run build:sidecar",
+    "preview": "vite preview",
+    "tauri": "tauri",
+    "renderer:install": "node scripts/build-sidecar.mjs"
+  },
+  "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
+    "@tauri-apps/api": "^2.8.0",
+    "ffmpeg-static": "^5.3.0",
+    "monaco-editor": "^0.52.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.8.4",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^5.0.2",
+    "@yao-pkg/pkg": "^6.22.0",
+    "playwright": "^1.55.0",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.3"
+  },
+  "pkg": {
+    "assets": [
+      "node_modules/playwright-core/browsers.json",
+      "node_modules/playwright-core/lib/**/*.json",
+      "node_modules/playwright/lib/**/*.json"
+    ]
+  }
 }
